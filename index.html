@@ -5,26 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Welcome to FitJourney</title>
   <style>
+    /* Include padding/border in element width calculations */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    /* Full-page background image */
     html, body {
       margin: 0;
       padding: 0;
       background-color: #121212;
+      background-image: url('brett-jordan-U2q73PfHFpM-unsplash.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       color: #e0e0e0;
       font-family: 'IBM Plex Mono', monospace;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      min-height: 100vh;
     }
 
+    /* Content container locked to left, solid backdrop */
     .container {
+      width: 100%;
       max-width: 640px;
-      padding: 2rem;
+      padding: 2rem 4rem;
       text-align: left;
-      position: relative;
+      margin: 0;
+      margin-right: auto;
+      background-color: #121212;
+      min-height: 100vh;
     }
 
+    /* Center logo relative to viewport */
     .logo {
       max-width: 160px;
       position: absolute;
@@ -32,7 +44,9 @@
       left: 1rem;
     }
 
+    /* Heading font stack */
     h1 {
+      font-family: 'Helvetica Neue', Helvetica, Arial, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
       font-size: 1.75rem;
       margin-top: 5rem;
       margin-bottom: 1rem;
@@ -59,6 +73,45 @@
       background-color: #ff7000;
     }
 
+    footer {
+      margin-top: 8rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.75rem;
+      color: #aaa;
+    }
+
+    footer p {
+      font-size: 0.75rem;
+    }
+
+    .footer-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-nav a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-nav a:hover {
+      color: #e0e0e0;
+    }
+
+    /* Adjust container at medium viewports */
+    @media (max-width: 800px) {
+      .container {
+        max-width: 100%;
+        padding: 2rem;
+      }
+    }
+
+    /* Adjust container for small mobile */
     @media (max-width: 480px) {
       .container {
         padding: 1.25rem;
@@ -73,7 +126,7 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-  <img src="fitjourneylogo.png" alt="FitJourney Logo" class="logo" />
+  <img src="https://fitjourneyai.app/fitjourneylogo.png" alt="FitJourney Logo" class="logo" />
   <div class="container">
     <h1>Help shape the future of how we track progress</h1>
     <p>
@@ -85,8 +138,19 @@
     <p>
       <strong>Ready?</strong>
     </p>
-    <a href="https://vz.typeform.com/to/QxgWgiYL" target="_blank" class="cta">Let's go.</a>
-    <p style="font-size: 0.75em; color: #aaa;">No sign-up required.</p>  
-</div>
+    <a href="https://vz.typeform.com/to/QxgWgiYL" target="_blank" class="cta">Let’s go.</a>
+    <p style="font-size: 0.75em; color: #aaa;">No sign-up required.</p>
+
+    <footer>
+      <nav>
+        <ul class="footer-nav">
+          <!--<li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>-->
+          <li><a href="mailto:hello@fitjourneyapp.ai">Contact Us</a></li>
+        </ul>
+      </nav>
+      <p>&copy; 2025 FitJourney AI. All rights reserved.</p>
+    </footer>
+  </div>
 </body>
 </html>
