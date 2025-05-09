@@ -4,10 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Welcome to FitJourney</title>
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Help shape the future of fitness tracking" />
+  <meta property="og:description" content="Take our quick 2-3 minute anonymous survey to improve how fitness progress is tracked." />
+  <meta property="og:image" content="https://fitjourneyai.app/brett-jordan-U2q73PfHFpM-unsplash.jpg" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Help shape the future of fitness tracking" />
+  <meta name="twitter:description" content="Take our quick 2-3 minute anonymous survey to improve how fitness progress is tracked." />
+  <meta name="twitter:image" content="https://fitjourneyai.app/brett-jordan-U2q73PfHFpM-unsplash.jpg" />
   <style>
-    /* Include padding/border in element width calculations */
-    *, *::before, *::after {
-      box-sizing: border-box;
+    /* Box sizing reset */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    /* Skip link for accessibility */
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    .skip-link:focus {
+      left: 1rem;
+      top: 1rem;
+      width: auto;
+      height: auto;
+      background: #fff;
+      color: #000;
+      padding: 0.5rem;
+      z-index: 100;
+      text-decoration: none;
     }
 
     /* Full-page background image */
@@ -17,147 +46,150 @@
       background-color: #121212;
       background-image: url('brett-jordan-U2q73PfHFpM-unsplash.jpg');
       background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
+      background-position: right center;
       background-repeat: no-repeat;
       color: #e0e0e0;
       font-family: 'IBM Plex Mono', monospace;
       min-height: 100vh;
     }
 
-    /* Content container locked to left, solid backdrop */
+    /* Main container locked left with solid backdrop */
     .container {
+      background-color: #121212;
+      max-width: 480px;
       width: 100%;
-      max-width: 640px;
-      padding: 2rem 4rem;
-      text-align: left;
       margin: 0;
       margin-right: auto;
-      background-color: #121212;
+      padding: 2rem 4rem;
       min-height: 100vh;
     }
 
-    /* Center logo relative to viewport */
+    /* Logo styling */
     .logo {
+      display: block;
       max-width: 160px;
-      top: 1rem;
+      margin-bottom: 2rem;
     }
 
-    /* Heading font stack */
+    /* Heading */
     h1 {
       font-family: 'Helvetica Neue', Helvetica, Arial, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
-      font-size: 1.75rem;
-      margin-top: 4rem;
+      font-size: 2rem;
+      margin-top: 0;
       margin-bottom: 1rem;
+      color: #ffffff;
     }
 
+    /* Body text */
     p {
-      font-size: 0.85rem;
-      line-height: 1.5;
+      font-size: 1rem;
+      line-height: 1.6;
       margin-bottom: 1.5rem;
     }
 
-    a.cta {
+    /* CTA button */
+    .cta {
       display: inline-block;
-      padding: 0.75rem 1.25rem;
+      width: auto;
+      padding: 1rem;
       background-color: #ff4800;
-      color: #e0e0e0;
+      color: #ffffff;
       font-weight: bold;
+      text-align: center;
       text-decoration: none;
       border-radius: 4px;
       transition: background-color 0.2s;
+      margin-bottom: 0.5rem; /* Reduced gap under button */
     }
-
-    a.cta:hover {
+    .cta:hover,
+    .cta:focus {
       background-color: #ff7000;
+      outline: 2px solid #ffffff;
+      outline-offset: 2px;
     }
 
+    /* Footer */
     footer {
-      margin-top: 8rem;
-      padding-top: 1rem;
+      margin-top: auto;
+      padding-top: 2rem;
       border-top: 1px solid rgba(255,255,255,0.1);
-      font-size: 0.75rem;
       color: #aaa;
-    }
-
-    footer p {
       font-size: 0.75rem;
     }
-
+    /* Copyright smaller */
+    footer p:last-of-type {
+      font-size: 0.6rem;
+    }
     .footer-nav {
       list-style: none;
       padding: 0;
-      margin: 0.5rem 0;
+      margin: 0 0 1rem;
       display: flex;
       gap: 1rem;
     }
-
     .footer-nav a {
       color: #aaa;
       text-decoration: underline;
-      transition: color 0.2s;
+    }
+    .footer-nav a:hover,
+    .footer-nav a:focus {
+      color: #ffffff;
+      outline: none;
+      text-decoration: none;
     }
 
-    .footer-nav a:hover {
-      color: #e0e0e0;
+    /* Reduce context text gap */
+    .cta + p {
+      margin-top: 0.25rem;
+      margin-bottom: 1.5rem;
     }
 
-    /* Adjust container at medium viewports */
+    /* Responsive adjustments */
     @media (max-width: 800px) {
       .container {
         max-width: 100%;
         padding: 2rem;
       }
+      /* Make CTA full-width on tablets */
+      .cta {
+        display: block;
+        width: 100%;
+      }
     }
-
-    /* Adjust container for small mobile */
     @media (max-width: 480px) {
       .container {
-        padding: 1.25rem;
+        padding: 1.5rem;
       }
-      .logo {
-        max-width: 140px;
-        top: 0.75rem;
-        left: 0.75rem;
+      h1 {
+        font-size: 1.75rem;
       }
-      a.cta {
-        width: 100%;
-        text-align: center;
+      /* On mobile, CTA remains full-width */
+      .cta {
         padding: 1rem;
-      }      
+      }
     }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <img src="fitjourneylogo.png" alt="FitJourney Logo" class="logo" />
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <main id="main-content" class="container">
+    <img src="https://fitjourneyai.app/fitjourneylogo.png" alt="FitJourney logo" class="logo" />
     <h1>Help shape the future of fitness tracking</h1>
-    <p>
-      We're running a short study to understand how people track their fitness progress — what’s working, what’s not, and what still feels frustrating.
-    </p>
-    <p>
-      Your input will help shape a smarter, more motivating way to measure change over time.
-    </p>  
-    <p>
-      📝 The survey takes just 2–3 minutes and is completely anonymous (unless you choose to join a follow-up).
-    </p>      
-    <p>
-      <strong>Ready?</strong>
-    </p>
-    <a href="https://vz.typeform.com/to/v23QPBFe" class="cta">Let’s go.</a>
-    <p style="font-size: 0.75em; color: #aaa;">No sign-up required.</p>
+    <p>We're running a short study to understand how people track their fitness progress — what’s working, what’s not, and what still feels frustrating.</p>
+    <p>Your input will help shape a smarter, more motivating way to measure change over time.</p>
+    <p>📝 The survey takes just 2–3 minutes and is completely anonymous (unless you choose to join a follow-up).</p>
+    <p><strong>Ready?</strong></p>
+    <a href="https://vz.typeform.com/to/v23QPBFe" class="cta">Take the survey</a>
+    <p style="font-size:0.75rem; color:#aaa;">No sign‑up required.</p>
 
     <footer>
-      <nav>
+      <nav aria-label="Footer navigation">
         <ul class="footer-nav">
-          <!--<li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>-->
           <li><a href="mailto:hello@fitjourneyapp.ai">Contact us</a></li>
         </ul>
       </nav>
       <p>&copy; 2025 FitJourney. All rights reserved.</p>
     </footer>
-  </div>
+  </main>
 </body>
 </html>
