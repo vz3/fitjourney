@@ -40,7 +40,7 @@ body {
 }
 
 .container {
-    background-color: rgba(18, 18, 18, 0.8);
+    background-color: rgba(18, 18, 18, 0.9);
     max-width: 480px;
     width: auto;             /* changed from 100% */
     margin-right: auto;
@@ -85,13 +85,15 @@ a {
 }
 
 .cta {
+    margin:auto;
     display: inline-block;
+    width:16rem;
     padding: 1rem;
     background-color: #ff4800;
     color: #fff;
     font-weight: bold;
     text-align: center;
-    border-radius: 4px;
+    border-radius: 12px;
     transition: background-color 0.2s;
     margin-bottom: 0.25rem;
 }
@@ -143,9 +145,17 @@ html.landing, body.landing {
         max-width: 100%;
         padding: 2rem;
     }
+    .hide-mobile {
+        display: none;
+    }
     .cta {
-        display: block;
-        width: 100%;
+        position: fixed;
+        left: 3rem;
+        right: 3rem;
+        bottom: 2rem;
+        border-radius: 24px;
+        width: auto;
+        z-index: 100;
     }
 }
 
@@ -155,17 +165,5 @@ html.landing, body.landing {
     }
     h1 {
         font-size: 1.75rem;
-    }
-    .hide-mobile {
-        display: none;
-    }
-    .cta {
-        position: fixed;
-        left: 1.5rem;
-        right: 1.5rem;
-        bottom: 2rem;
-        border-radius: 24px;
-        width: auto;
-        z-index: 100;
     }
 }
