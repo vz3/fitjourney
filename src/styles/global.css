@@ -1,0 +1,223 @@
+/* ==========================================================================
+   CSS Reset and Base Styles
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================================================
+   Typography and Base Elements
+   ========================================================================== */
+html, body {
+    color: #e0e0e0;
+    font-family: 'IBM Plex Mono', monospace;
+    min-height: 100vh;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==========================================================================
+   Background and Layout
+   ========================================================================== */
+body {
+    background-image: url('/bg.jpg');
+    background-color: #121212;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
+.skip-link {
+    position: absolute;
+    left: -999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    background: #fff;
+    color: #000;
+    padding: 0.5rem;
+    z-index: 100;
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   Layout Components
+   ========================================================================== */
+.container {
+    background-color: rgba(18, 18, 18, 0.9);
+    max-width: 480px;
+    width: auto;
+    margin-right: auto;
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   Branding
+   ========================================================================== */
+.logo {
+    max-width: 160px;
+    margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+h1, h2, h3, h4 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+h2, h3 {
+    font-weight: bold;
+    margin: 2rem 0 1rem;
+}
+
+p, ul, ol {
+    margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   Links and Navigation
+   ========================================================================== */
+.footer-nav li {
+    padding-left: 0;
+}
+
+a {
+    color: #ff4800;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover, a:focus {
+    text-decoration: underline;
+    color: #ff7000;
+}
+
+a:focus {
+    outline: 2px solid #ff4800;
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Buttons and Interactive Elements
+   ========================================================================== */
+.cta {
+    margin: auto;
+    display: inline-block;
+    width: 16rem;
+    padding: 1rem;
+    background-color: #ff4800;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 12px;
+    transition: background-color 0.2s;
+    margin-bottom: 0.25rem;
+    text-decoration: none;
+}
+
+.cta:hover, .cta:focus {
+    background-color: #ff7000;
+    color: #fff;
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   Footer and Layout Utilities
+   ========================================================================== */
+.hide-mobile {
+    display: block;
+}
+
+footer {
+    margin-top: auto;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.75rem;
+    color: #aaa;
+    margin-bottom: 5rem;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer-nav a {
+    color: #aaa;
+}
+
+.footer-nav a:hover, .footer-nav a:focus {
+    color: #fff;
+}
+
+footer p:last-of-type {
+    font-size: 0.6rem;
+}
+
+/* ==========================================================================
+   Page-Specific Styles
+   ========================================================================== */
+html.landing, body.landing {
+    background-size: cover;
+    background-position: right center;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (min-width: 801px) {
+    .cta {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+@media (max-width: 800px) {
+    .container {
+        max-width: 100%;
+        padding: 2rem;
+        padding-bottom: 2rem;
+    }
+    
+    .cta {
+        width: 100%;
+        border-radius: 24px;
+        margin: 2rem 0 1rem 0;
+        height: 3.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 1.75rem;
+    }
+}

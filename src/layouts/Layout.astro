@@ -1,0 +1,89 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const { title, description = "Take our quick 2-3 minute anonymous survey to improve how fitness progress is tracked.", image = "/brett-jordan-U2q73PfHFpM-unsplash.jpg" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html class="landing" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={description} />
+  <meta name="author" content="222 Labs LLC" />
+  <meta name="robots" content="index, follow" />
+  <title>{title}</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="https://fitjourneyai.app/fitjourneylogo.png" as="image" />
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-W9W4PFKR');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Open Graph / Twitter Cards -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={image} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={image} />
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "FitJourney",
+      "description": "Help shape the future of fitness tracking",
+      "url": "https://fitjourneyai.app",
+      "publisher": {
+        "@type": "Organization",
+        "name": "222 Labs LLC",
+        "url": "https://222labs.co"
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9W4PFKR"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <main id="main-content" class="container">
+    <a href="/" aria-label="Home"><img src="/fitjourneylogo.png" alt="FitJourney logo" class="logo" loading="lazy" /></a>
+    
+    <slot />
+    
+    <footer>
+      <nav aria-label="Footer navigation">
+        <ul class="footer-nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="mailto:hello@fitjourneyapp.ai">Contact us</a></li>
+        </ul>
+      </nav>
+      <p>All rights reserved. <a href="https://222labs.co" target="_blank" rel="noopener noreferrer">222 Labs LLC</a></p>
+    </footer>
+  </main>
+</body>
+</html>
